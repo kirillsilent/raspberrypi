@@ -122,7 +122,6 @@ case "$1" in
                 ;;
         throttlestate)
                 # throttle state, for more information: 
-		        # https://www.raspberrypi.org/forums/viewtopic.php?f=63&t=147781&start=50#p972790
                 /opt/vc/bin/vcgencmd get_throttled | sed s/"throttled="//g | perl -e '$number = hex(<STDIN>); printf "%.32b\n", $number'
                 ;;
         *)
