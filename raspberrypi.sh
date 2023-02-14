@@ -124,12 +124,16 @@ case "$1" in
                 # SIP address
                 cat /home/pi/sowa/sip_client/lib/settings/client.json | grep username | cut -d " " -f 10
                 ;;
+        sipaddressnew)
+                # SIP address new
+                cat /home/pi/rescue/sip_client/lib/settings/client.json | grep username | cut -d " " -f 10
+                ;;
         throttlestate)
                 # throttle state, for more information: 
 		        # https://www.raspberrypi.org/forums/viewtopic.php?f=63&t=147781&start=50#p972790
                 /opt/vc/bin/vcgencmd get_throttled | sed s/"throttled="//g | perl -e '$number = hex(<STDIN>); printf "%.32b\n", $number'
                 ;;
         *)
-                echo "Usage: $N {boardrevision|boardversion|boardserialnumber|coreclock|cpuvoltage|cpuclock|h264clock|ispclock|v3dclock|uartclock|pwmclock|emmcclock|pixelclock|vecclock|hdmiclock|dpiclock|cpumem|firmwareversion|gpumem|sdcardtotalsize|sdcardused|sdcardusedpercent|sdcardfree|sdramcvoltage|sdramivoltage|sdrampvoltage|temperature}" >&2
+                echo "Usage: $N {boardrevision|sipaddress|sipaddressnew|boardversion|boardserialnumber|coreclock|cpuvoltage|cpuclock|h264clock|ispclock|v3dclock|uartclock|pwmclock|emmcclock|pixelclock|vecclock|hdmiclock|dpiclock|cpumem|firmwareversion|gpumem|sdcardtotalsize|sdcardused|sdcardusedpercent|sdcardfree|sdramcvoltage|sdramivoltage|sdrampvoltage|temperature}" >&2
 esac
 exit 0
